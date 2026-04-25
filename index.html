@@ -2,262 +2,175 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
     <meta name="description" content="InstaStream - Usługi elektryczne, hydrauliczne, klimatyzacja i pompy ciepła w Polkowicach. Certyfikowani specjaliści z gwarancją.">
     <meta name="keywords" content="elektryk Polkowice, hydraulik Polkowice, klimatyzacja Polkowice, pompy ciepła Polkowice, SEP G1, F-Gaz">
     <meta name="author" content="InstaStream">
-    <title>InstaStream - Usługi Elektryczne • Hydrauliczne • Klimatyzacja • Pompy Ciepła</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>⚡ InstalStream 🌬️</title>
     <style>
         :root {
-            --primary: #1e3a8a;
-            --primary-dark: #1e40af;
-            --accent: #ea580c;
-            --light: #f8fafc;
-            --dark: #1e293b;
-            --white: #ffffff;
-            --gray: #e2e8f0;
+            --width: 800px;
+            --font-main: Verdana, sans-serif;
+            --font-secondary: Verdana, sans-serif;
+            --font-scale: 1em;
+            --background-color: #01242e;
+            --heading-color: #eee;
+            --text-color: #ddd;
+            --text-secondary: #94a3b8;
+            --link-color: #8cc2dd;
+            --visited-color: #8b6fcb;
+            --code-background-color: #000;
+            --code-color: #ddd;
+            --border-color: #334155;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
+
+        @media (prefers-color-scheme: light) {
+            :root {
+                --background-color: #fff;
+                --heading-color: #222;
+                --text-color: #444;
+                --text-secondary: #666;
+                --link-color: #3273dc;
+                --visited-color: #8b6fcb;
+                --code-background-color: #f2f2f2;
+                --code-color: #222;
+                --border-color: #ccc;
+            }
+        }
+
         body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.7;
-            color: var(--dark);
-            background-color: var(--light);
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1rem;
+            font-family: var(--font-secondary);
+            font-size: var(--font-scale);
+            margin: auto;
+            padding: 20px;
+            max-width: var(--width);
+            text-align: left;
+            background-color: var(--background-color);
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            line-height: 1.5;
+            color: var(--text-color);
         }
-        header {
-            text-align: center;
-            padding: 4rem 0 2rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-            margin-bottom: 2.5rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-        }
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-            font-weight: 700;
-            text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
-        }
-        header p.tagline {
-            font-size: 1.15rem;
-            opacity: 0.95;
-            font-weight: 400;
-            letter-spacing: 1.5px;
-        }
-        section {
-            background-color: var(--white);
-            margin-bottom: 2rem;
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-            border: 1px solid var(--gray);
-        }
-        section h2 {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 0.75rem;
-        }
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            border-radius: 2px;
-        }
-        section h3 {
-            color: var(--primary);
-            margin-top: 0;
-            margin-bottom: 1.25rem;
-            font-size: 1.25rem;
-            font-weight: 600;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid var(--gray);
-        }
-        /* Hero section - more prominent */
-        .hero {
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-        .hero h2 {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            font-weight: 600;
-        }
-        .hero p {
-            font-size: 1.3rem;
-            color: var(--accent);
-            font-weight: 500;
-        }
-        /* Services grid - modern cards */
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-        .service-category {
-            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
-            padding: 1.5rem;
-            border-radius: 6px;
-            border: 1px solid var(--gray);
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-        .service-category:hover {
-            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.12);
-            transform: translateY(-3px);
-            border-color: var(--primary);
-        }
-        .services ul {
-            list-style: none;
-            padding: 0;
-        }
-        .services li {
-            padding: 0.6rem 0;
-            position: relative;
-            padding-left: 1.5rem;
-            color: #334155;
-            transition: color 0.2s;
-        }
-        .services li:hover {
-            color: var(--primary);
-        }
-        .services li::before {
-            content: "✔";
-            position: absolute;
-            left: 0;
-            color: var(--accent);
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: var(--font-main);
+            color: var(--heading-color);
             font-weight: bold;
-            font-size: 0.85rem;
         }
-        /* Certificates */
-        .certificates {
-            text-align: center;
-        }
-        .certificates ul {
-            display: inline-grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1rem;
-            list-style: none;
-            padding: 0;
-            margin: 0 auto;
-            max-width: 600px;
-        }
-        .certificates li {
-            padding: 1.25rem 1.5rem;
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.05), rgba(234, 88, 12, 0.03));
-            border-radius: 6px;
-            border-left: 4px solid var(--accent);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            font-weight: 500;
-            color: #1e293b;
-        }
-        /* Pricing & Contact */
-        .pricing-contact {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-        .pricing, .contact {
-            padding: 2rem;
-            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
-            border-radius: 8px;
-            border: 1px solid var(--gray);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-        }
-        .pricing {
-            border-top: 4px solid var(--primary);
-        }
-        .contact {
-            border-top: 4px solid var(--accent);
-        }
-        .contact p {
-            margin: 0.75rem 0;
-            font-size: 1.05rem;
-            color: #334155;
-        }
-        .contact p:first-child {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--dark);
-        }
-        .contact p a {
-            color: var(--primary);
+
+        a {
+            color: var(--link-color);
+            cursor: pointer;
             text-decoration: none;
         }
-        .contact p a:hover {
+
+        a:hover {
             text-decoration: underline;
         }
-        /* Footer */
-        footer {
+
+        header {
+            border-bottom: 1px dashed var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 20px;
             text-align: center;
-            padding: 2.5rem 1rem;
-            margin-top: 3rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
-            border-radius: 8px;
         }
-        footer p {
-            margin: 0.75rem 0;
-            font-size: 1.1rem;
+
+        header h1 {
+            font-size: 2.25rem;
         }
-        footer p:first-child {
-            font-size: 1.3rem;
+
+        header p.tagline {
+            font-size: 0.9em;
+            margin-top: -5px;
+        }
+
+        strong, b {
+            color: var(--heading-color);
+        }
+
+        main {
+            line-height: 1.6;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px dashed var(--border-color);
+            margin: 2em 0;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        code {
+            font-family: monospace;
+            padding: 2px;
+            background-color: var(--code-background-color);
+            color: var(--code-color);
+            border-radius: 3px;
+        }
+
+        blockquote {
+            border-left: 1px solid #999;
+            color: var(--code-color);
+            padding-left: 20px;
             font-style: italic;
-            opacity: 0.95;
         }
-        /* Responsive */
-        @media (max-width: 768px) {
-            body { padding: 0 0.75rem; }
-            header h1 { font-size: 2.25rem; }
-            header { padding: 3rem 0 1.5rem; }
-            section { padding: 1.75rem; }
-            .hero h2 { font-size: 1.6rem; }
-            .hero p { font-size: 1.15rem; }
-            .services, .pricing-contact { grid-template-columns: 1fr; }
-            .certificates ul { grid-template-columns: 1fr; }
+
+        footer {
+            padding: 25px 0;
+            text-align: center;
+            margin-top: 40px;
+            border-top: 1px dashed var(--border-color);
         }
-        @media (max-width: 1024px) and (min-width: 769px) {
-            .services { grid-template-columns: repeat(2, 1fr); }
+
+        ul {
+            margin: 1em 0;
+            padding-left: 20px;
+        }
+
+        li {
+            margin: 0.5em 0;
+        }
+
+        @media (max-width: 480px) {
+            header h1 { font-size: 1.75rem; }
+            header p.tagline { font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>INSTASTREAM</h1>
-        <p class="tagline">ELEKTRYKA • POMIARY • HYDRAULIKA • KLIMATYZACJA</p>
+        <a href="/">
+            <h1>⚡ InstalStream 🌬️💧</h1>
+        </a>
+        <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: -5px;">ELEKTRYKA &middot; POMIARY &middot; HYDRAULIKA &middot; KLIMATYZACJA</p>
     </header>
+    <main>
+        <section>
+            <h2>Szukasz zaufanego specjalisty w Polkowicach?</h2>
+            <p>Jesteś w dobrym miejscu!</p>
+        </section>
 
-    <section class="hero">
-        <h2>Szukasz zaufanego specjalisty w Polkowicach?</h2>
-        <p>Jesteś w dobrym miejscu!</p>
-    </section>
+        <hr>
 
-    <section class="certificates">
-        <h2>CERTYFIKATY I BEZPIECZEŃSTWO</h2>
-        <ul>
-            <li>Certyfikat SEP G1 (do 1 kV)</li>
-            <li>Certyfikat F-Gaz (UE)</li>
-            <li>Gwarancja serwisowa</li>
-        </ul>
-    </section>
+        <section>
+            <h2>📜 CERTYFIKATY I BEZPIECZEŃSTWO</h2>
+            <ul>
+                <li>✅ Certyfikat SEP G1 (do 1 kV)</li>
+                <li>✅ Certyfikat F-Gaz (UE)</li>
+                <li>✅ Gwarancja serwisowa</li>
+            </ul>
+        </section>
 
-    <section class="services">
-        <div class="service-category">
-            <h3>USŁUGI ELEKTRYCZNE</h3>
+        <hr>
+
+        <section>
+            <h3>⚡ USŁUGI ELEKTRYCZNE</h3>
             <ul>
                 <li>Montaż rozdzielnic</li>
                 <li>Podłączenie urządzeń i pomp ciepła</li>
@@ -265,52 +178,48 @@
                 <li>Naprawa usterek</li>
                 <li>Okablowanie</li>
             </ul>
-        </div>
-        <div class="service-category">
-            <h3>POMIARY KONTROLNE OKRESOWE</h3>
+
+            <h3>📏 POMIARY KONTROLNE OKRESOWE</h3>
             <ul>
                 <li>Pomiary okresowe</li>
                 <li>Rezystancja izolacji</li>
                 <li>Ochrona przeciwporażeniowa</li>
                 <li>Protokoły (PN-HD 60364-6)</li>
             </ul>
-        </div>
-        <div class="service-category">
-            <h3>USŁUGI HYDRAULICZNE</h3>
+
+            <h3>💧 USŁUGI HYDRAULICZNE</h3>
             <ul>
                 <li>Montaż armatury sanitarnej</li>
                 <li>Podłączenie urządzeń</li>
                 <li>Naprawa zaworów</li>
                 <li>Instalacje wodno-kanalizacyjne</li>
             </ul>
-        </div>
-        <div class="service-category">
-            <h3>KLIMATYZACJA I POMPY CIEPŁA</h3>
+
+            <h3>🌬️ KLIMATYZACJA I POMPY CIEPŁA</h3>
             <ul>
                 <li>Montaż split/multi-split</li>
                 <li>Serwis pomp ciepła</li>
                 <li>Czyszczenie</li>
                 <li>Konserwacja sezonowa</li>
             </ul>
-        </div>
-    </section>
+        </section>
 
-    <section class="pricing-contact">
-        <div class="pricing">
-            <h3>CENNIK</h3>
-            <p>Darmowa wycena po oględzinach</p>
-            <p>Darmowa konsultacja telefoniczna</p>
-        </div>
-        <div class="contact">
-            <h3>KONTAKT</h3>
-            <p>721 438 214</p>
-            <p><a href="mailto:kontakt@instalstream.pl">kontakt@instalstream.pl</a></p>
-            <p>Polkowice i okolice</p>
-        </div>
-    </section>
+        <hr>
 
+        <section>
+            <h3>💰 CENNIK</h3>
+            <p>Darmowa wycena po oględzinach, konsultacja telefoniczna</p>
+
+            <h3>📞 KONTAKT</h3>
+            <ul>
+                <li><a href="tel:721438214">721 438 214</a></li>
+                <li><a href="mailto:kontakt@instalstream.pl">kontakt@instalstream.pl</a></li>
+                <li>📍 Polkowice i okolice</li>
+            </ul>
+        </section>
+    </main>
     <footer>
-        <p>"Moc • Woda • Klimat"</p>
+        <p><i>"Moc &middot; Woda &middot; Klimat"</i></p>
         <p>Zadzwoń i umów bezpłatną wycenę!</p>
     </footer>
 </body>
