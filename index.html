@@ -9,141 +9,224 @@
     <title>InstaStream - Usługi Elektryczne • Hydrauliczne • Klimatyzacja • Pompy Ciepła</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #1a237e;
-            --secondary: #283593;
-            --accent: #ff6f00;
-            --light: #f8f9fa;
-            --dark: #212121;
+            --primary: #1e3a8a;
+            --primary-dark: #1e40af;
+            --accent: #ea580c;
+            --light: #f8fafc;
+            --dark: #1e293b;
             --white: #ffffff;
+            --gray: #e2e8f0;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: 'Poppins', sans-serif;
             line-height: 1.7;
             color: var(--dark);
             background-color: var(--light);
-            max-width: 1000px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 1rem;
         }
         header {
             text-align: center;
-            padding: 3rem 0;
-            background-color: var(--white);
-            border-bottom: 2px solid var(--primary);
-            margin-bottom: 2rem;
+            padding: 4rem 0 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
         }
         header h1 {
-            font-size: 2.5rem;
-            color: var(--primary);
+            font-size: 3rem;
             margin-bottom: 0.5rem;
             font-weight: 700;
+            text-shadow: 1px 2px 4px rgba(0,0,0,0.2);
         }
         header p.tagline {
-            font-size: 1.1rem;
-            color: var(--secondary);
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-size: 1.15rem;
+            opacity: 0.95;
+            font-weight: 400;
+            letter-spacing: 1.5px;
         }
         section {
             background-color: var(--white);
             margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: 4px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            border: 1px solid var(--gray);
         }
         section h2 {
             color: var(--primary);
-            border-bottom: 2px solid var(--primary);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
             font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 2px;
         }
         section h3 {
-            color: var(--secondary);
-            margin-top: 1.5rem;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            border-bottom: 1px solid #e0e0e0;
+            color: var(--primary);
+            margin-top: 0;
+            margin-bottom: 1.25rem;
+            font-size: 1.25rem;
+            font-weight: 600;
             padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--gray);
         }
+        /* Hero section - more prominent */
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+        .hero h2 {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--accent);
+            font-weight: 500;
+        }
+        /* Services grid - modern cards */
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
         .service-category {
-            padding: 1rem;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--gray);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+        .service-category:hover {
+            box-shadow: 0 8px 20px rgba(30, 58, 138, 0.12);
+            transform: translateY(-3px);
+            border-color: var(--primary);
         }
         .services ul {
             list-style: none;
+            padding: 0;
         }
         .services li {
-            padding: 0.4rem 0;
+            padding: 0.6rem 0;
             position: relative;
-            padding-left: 1.2rem;
+            padding-left: 1.5rem;
+            color: #334155;
+            transition: color 0.2s;
+        }
+        .services li:hover {
+            color: var(--primary);
         }
         .services li::before {
-            content: "•";
+            content: "✔";
             position: absolute;
             left: 0;
             color: var(--accent);
             font-weight: bold;
+            font-size: 0.85rem;
+        }
+        /* Certificates */
+        .certificates {
+            text-align: center;
         }
         .certificates ul {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            display: inline-grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1rem;
             list-style: none;
+            padding: 0;
+            margin: 0 auto;
+            max-width: 600px;
         }
         .certificates li {
-            padding: 1rem;
-            background-color: rgba(26, 35, 126, 0.03);
-            border-left: 3px solid var(--accent);
+            padding: 1.25rem 1.5rem;
+            background: linear-gradient(135deg, rgba(30, 58, 138, 0.05), rgba(234, 88, 12, 0.03));
+            border-radius: 6px;
+            border-left: 4px solid var(--accent);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            font-weight: 500;
+            color: #1e293b;
         }
+        /* Pricing & Contact */
         .pricing-contact {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
         }
         .pricing, .contact {
-            padding: 1.5rem;
-            background-color: rgba(248, 249, 250, 0.7);
-            border-radius: 4px;
+            padding: 2rem;
+            background: linear-gradient(to bottom, #ffffff 0%, #f8fafc 100%);
+            border-radius: 8px;
+            border: 1px solid var(--gray);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .pricing {
+            border-top: 4px solid var(--primary);
+        }
+        .contact {
+            border-top: 4px solid var(--accent);
         }
         .contact p {
-            margin: 0.5rem 0;
+            margin: 0.75rem 0;
             font-size: 1.05rem;
+            color: #334155;
         }
         .contact p:first-child {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 600;
+            color: var(--dark);
         }
+        .contact p a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        .contact p a:hover {
+            text-decoration: underline;
+        }
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem 0;
+            padding: 2.5rem 1rem;
             margin-top: 3rem;
-            background-color: var(--white);
-            border-top: 2px solid var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border-radius: 8px;
         }
         footer p {
-            margin: 0.5rem 0;
-            color: var(--secondary);
+            margin: 0.75rem 0;
+            font-size: 1.1rem;
         }
         footer p:first-child {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-style: italic;
-            color: var(--primary);
+            opacity: 0.95;
         }
+        /* Responsive */
         @media (max-width: 768px) {
-            body { padding: 0 15px; }
-            header h1 { font-size: 2rem; }
-            header p.tagline { font-size: 1rem; }
-            section { padding: 1.5rem; }
-            section h2 { font-size: 1.5rem; }
+            body { padding: 0 0.75rem; }
+            header h1 { font-size: 2.25rem; }
+            header { padding: 3rem 0 1.5rem; }
+            section { padding: 1.75rem; }
+            .hero h2 { font-size: 1.6rem; }
+            .hero p { font-size: 1.15rem; }
             .services, .pricing-contact { grid-template-columns: 1fr; }
             .certificates ul { grid-template-columns: 1fr; }
         }
@@ -221,7 +304,7 @@
         <div class="contact">
             <h3>KONTAKT</h3>
             <p>721 438 214</p>
-            <p>kontakt@instalstream.pl</p>
+            <p><a href="mailto:kontakt@instalstream.pl">kontakt@instalstream.pl</a></p>
             <p>Polkowice i okolice</p>
         </div>
     </section>
