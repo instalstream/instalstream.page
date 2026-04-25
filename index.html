@@ -2,14 +2,14 @@
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5, user-scalable=yes">
     <meta name="description" content="InstaStream - Usługi elektryczne, hydrauliczne, klimatyzacja i pompy ciepła w Polkowicach. Certyfikowani specjaliści z gwarancją.">
     <meta name="keywords" content="elektryk Polkowice, hydraulik Polkowice, klimatyzacja Polkowice, pompy ciepła Polkowice, SEP G1, F-Gaz">
     <meta name="author" content="InstaStream">
     <title>⚡ InstalStream 🌬️</title>
     <style>
         :root {
-            --width: 800px;
+            --max-width: 900px;
             --font-main: Verdana, sans-serif;
             --font-secondary: Verdana, sans-serif;
             --font-scale: 1em;
@@ -22,6 +22,8 @@
             --code-background-color: #000;
             --code-color: #ddd;
             --border-color: #334155;
+            --cta-color: #8cc2dd;
+            --cta-bg: #0c3848;
         }
 
         @media (prefers-color-scheme: light) {
@@ -35,15 +37,21 @@
                 --code-background-color: #f2f2f2;
                 --code-color: #222;
                 --border-color: #ccc;
+                --cta-color: #fff;
+                --cta-bg: #3273dc;
             }
+        }
+
+        * {
+            box-sizing: border-box;
         }
 
         body {
             font-family: var(--font-secondary);
             font-size: var(--font-scale);
             margin: auto;
-            padding: 20px;
-            max-width: var(--width);
+            padding: 20px 15px;
+            max-width: var(--max-width);
             text-align: left;
             background-color: var(--background-color);
             word-wrap: break-word;
@@ -62,10 +70,24 @@
             color: var(--link-color);
             cursor: pointer;
             text-decoration: none;
+            transition: color 0.2s ease;
         }
 
         a:hover {
             text-decoration: underline;
+        }
+
+        a[href^="tel:"],
+        a[href^="mailto:"] {
+            font-weight: bold;
+            display: inline-block;
+            padding: 2px 0;
+        }
+
+        a[href^="tel:"]:hover,
+        a[href^="mailto:"]:hover {
+            color: var(--cta-color);
+            text-decoration: none;
         }
 
         header {
@@ -75,11 +97,22 @@
             text-align: center;
         }
 
-        header h1 {
-            font-size: 2.25rem;
+        header a {
+            display: inline-block;
         }
 
-        header p.tagline {
+        header a:hover {
+            opacity: 0.8;
+            text-decoration: none;
+        }
+
+        header h1 {
+            font-size: 2.25rem;
+            line-height: 1.2;
+        }
+
+        .tagline {
+            color: var(--text-secondary);
             font-size: 0.9em;
             margin-top: -5px;
         }
@@ -104,11 +137,12 @@
 
         img {
             max-width: 100%;
+            height: auto;
         }
 
         code {
             font-family: monospace;
-            padding: 2px;
+            padding: 2px 4px;
             background-color: var(--code-background-color);
             color: var(--code-color);
             border-radius: 3px;
@@ -135,11 +169,146 @@
 
         li {
             margin: 0.5em 0;
+            line-height: 1.5;
+        }
+
+        /* Service sections with IDs for linking */
+        section[id] {
+            scroll-margin-top: 20px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            padding: 14px 28px;
+            font-size: 1.1em;
+            font-weight: bold;
+            background-color: var(--cta-bg);
+            color: var(--cta-color) !important;
+            border: 2px solid var(--cta-color);
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+            transition: all 0.2s ease;
+        }
+
+        .cta-button:hover {
+            background-color: var(--cta-color);
+            color: var(--cta-bg) !important;
+            text-decoration: none;
+            transform: translateY(-2px);
+        }
+
+        /* Sticky Contact Bar */
+        .sticky-contact {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: var(--background-color);
+            border-top: 1px solid var(--border-color);
+            padding: 12px 15px;
+            z-index: 1000;
+            text-align: center;
+            display: none;
+        }
+
+        .sticky-contact .call-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            font-size: 1.15em;
+            font-weight: bold;
+            background-color: var(--cta-bg);
+            color: var(--cta-color) !important;
+            border: 2px solid var(--cta-color);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .sticky-contact .call-button:hover {
+            background-color: var(--cta-color);
+            color: var(--cta-bg) !important;
+            transform: translateY(-2px);
+        }
+
+        /* Navigation links in services */
+        .nav-link {
+            display: block;
+            padding: 8px 0;
+            margin: 4px 0;
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(140, 194, 221, 0.15);
+            text-decoration: none;
+        }
+
+        /* Improved list styling */
+        ul.service-list li {
+            padding: 6px 0;
+        }
+
+        ul.service-list li:hover {
+            color: var(--link-color);
+            cursor: default;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 15px 12px;
+            }
+            header h1 {
+                font-size: 1.75rem;
+            }
+            .tagline {
+                font-size: 0.85rem;
+            }
+            h2 {
+                font-size: 1.4rem;
+            }
+            h3 {
+                font-size: 1.2rem;
+            }
         }
 
         @media (max-width: 480px) {
-            header h1 { font-size: 1.75rem; }
-            header p.tagline { font-size: 0.85rem; }
+            .sticky-contact {
+                display: block;
+            }
+            body {
+                padding-bottom: 70px;
+            }
+            header h1 {
+                font-size: 1.5rem;
+            }
+            .tagline {
+                font-size: 0.8rem;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            h3 {
+                font-size: 1.1rem;
+            }
+            li {
+                font-size: 0.95em;
+            }
+            .cta-button {
+                width: 100%;
+                padding: 16px;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                transition: none !important;
+                animation: none !important;
+            }
         }
     </style>
 </head>
@@ -148,8 +317,13 @@
         <a href="/">
             <h1>⚡ InstalStream 🌬️💧</h1>
         </a>
-        <p style="color: var(--text-secondary); font-size: 0.9em; margin-top: -5px;">ELEKTRYKA &middot; POMIARY &middot; HYDRAULIKA &middot; KLIMATYZACJA</p>
+        <p class="tagline">ELEKTRYKA &middot; POMIARY &middot; HYDRAULIKA &middot; KLIMATYZACJA</p>
     </header>
+    
+    <div class="sticky-contact">
+        <a href="tel:721438214" class="call-button">📞 721 438 214</a>
+    </div>
+    
     <main>
         <section>
             <h2>Szukasz zaufanego specjalisty w Polkowicach?</h2>
@@ -158,9 +332,9 @@
 
         <hr>
 
-        <section>
+        <section id="certyfikaty">
             <h2>📜 CERTYFIKATY I BEZPIECZEŃSTWO</h2>
-            <ul>
+            <ul class="service-list">
                 <li>✅ Certyfikat SEP G1 (do 1 kV)</li>
                 <li>✅ Certyfikat F-Gaz (UE)</li>
                 <li>✅ Gwarancja serwisowa</li>
@@ -169,58 +343,69 @@
 
         <hr>
 
-        <section>
-            <h3>⚡ USŁUGI ELEKTRYCZNE</h3>
-            <ul>
-                <li>Montaż rozdzielnic</li>
-                <li>Podłączenie urządzeń i pomp ciepła</li>
-                <li>Wymiana gniazdek</li>
-                <li>Naprawa usterek</li>
-                <li>Okablowanie</li>
-            </ul>
+        <section id="uslugi">
+            <h2>🔧 NASZE USŁUGI</h2>
+            
+            <article id="elektryka">
+                <h3><a href="#elektryka" class="nav-link">⚡ USŁUGI ELEKTRYCZNE</a></h3>
+                <ul class="service-list">
+                    <li>Montaż rozdzielnic</li>
+                    <li>Podłączenie urządzeń i pomp ciepła</li>
+                    <li>Wymiana gniazdek</li>
+                    <li>Naprawa usterek</li>
+                    <li>Okablowanie</li>
+                </ul>
+            </article>
 
-            <h3>📏 POMIARY KONTROLNE OKRESOWE</h3>
-            <ul>
-                <li>Pomiary okresowe</li>
-                <li>Rezystancja izolacji</li>
-                <li>Ochrona przeciwporażeniowa</li>
-                <li>Protokoły (PN-HD 60364-6)</li>
-            </ul>
+            <article id="pomiary">
+                <h3><a href="#pomiary" class="nav-link">📏 POMIARY KONTROLNE OKRESOWE</a></h3>
+                <ul class="service-list">
+                    <li>Pomiary okresowe</li>
+                    <li>Rezystancja izolacji</li>
+                    <li>Ochrona przeciwporażeniowa</li>
+                    <li>Protokoły (PN-HD 60364-6)</li>
+                </ul>
+            </article>
 
-            <h3>💧 USŁUGI HYDRAULICZNE</h3>
-            <ul>
-                <li>Montaż armatury sanitarnej</li>
-                <li>Podłączenie urządzeń</li>
-                <li>Naprawa zaworów</li>
-                <li>Instalacje wodno-kanalizacyjne</li>
-            </ul>
+            <article id="hydraulika">
+                <h3><a href="#hydraulika" class="nav-link">💧 USŁUGI HYDRAULICZNE</a></h3>
+                <ul class="service-list">
+                    <li>Montaż armatury sanitarnej</li>
+                    <li>Podłączenie urządzeń</li>
+                    <li>Naprawa zaworów</li>
+                    <li>Instalacje wodno-kanalizacyjne</li>
+                </ul>
+            </article>
 
-            <h3>🌬️ KLIMATYZACJA I POMPY CIEPŁA</h3>
-            <ul>
-                <li>Montaż split/multi-split</li>
-                <li>Serwis pomp ciepła</li>
-                <li>Czyszczenie</li>
-                <li>Konserwacja sezonowa</li>
-            </ul>
+            <article id="klimatyzacja">
+                <h3><a href="#klimatyzacja" class="nav-link">🌬️ KLIMATYZACJA I POMPY CIEPŁA</a></h3>
+                <ul class="service-list">
+                    <li>Montaż split/multi-split</li>
+                    <li>Serwis pomp ciepła</li>
+                    <li>Czyszczenie</li>
+                    <li>Konserwacja sezonowa</li>
+                </ul>
+            </article>
         </section>
 
         <hr>
 
-        <section>
-            <h3>💰 CENNIK</h3>
-            <p>Darmowa wycena po oględzinach, konsultacja telefoniczna</p>
-
-            <h3>📞 KONTAKT</h3>
-            <ul>
-                <li><a href="tel:721438214">721 438 214</a></li>
-                <li><a href="mailto:kontakt@instalstream.pl">kontakt@instalstream.pl</a></li>
+        <section id="kontakt">
+            <h2>📞 KONTAKT</h2>
+            <ul class="service-list">
+                <li><strong><a href="tel:721438214">721 438 214</a></strong></li>
+                <li><strong><a href="mailto:kontakt@instalstream.pl">kontakt@instalstream.pl</a></strong></li>
                 <li>📍 Polkowice i okolice</li>
             </ul>
+            
+            <h3>💰 CENNIK</h3>
+            <p>Darmowa wycena po oględzinach, konsultacja telefoniczna</p>
+            <p><a href="#certyfikaty" class="cta-button nav-link">Sprawdź certyfikaty</a></p>
         </section>
     </main>
     <footer>
         <p><i>"Moc &middot; Woda &middot; Klimat"</i></p>
-        <p>Zadzwoń i umów bezpłatną wycenę!</p>
+        <p><a href="tel:721438214" class="cta-button">Zadzwoń i umów bezpłatną wycenę!</a></p>
     </footer>
 </body>
 </html>
