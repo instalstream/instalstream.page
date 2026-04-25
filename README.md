@@ -1,6 +1,6 @@
-# InstaStream - Strona Firmowa
+# InstaStream 
 
-Statyczna strona internetowa dla InstaStream z Polkowic.
+Statyczna strona internetowa dla InstaStream.
 
 ## Usługi
 - Usługi elektryczne
